@@ -1,2 +1,3 @@
-# mydx11
+# GUI Desktop Docker
+A remote desktop environment deployed with Docker
  
