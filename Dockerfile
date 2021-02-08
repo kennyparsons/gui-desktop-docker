@@ -13,7 +13,7 @@ RUN apt update \
     tigervnc-xorg-extension \
 	tasksel \
 	dialog
-RUN DEBIAN_FRONTEND=noninteractive tasksel install desktop gnome-desktop
+RUN DEBIAN_FRONTEND=noninteractive sudo tasksel install desktop gnome-desktop
 RUN \
   && useradd -ms /bin/bash vncuser \
   && mkdir -p /home/vncuser/.vnc/ \
