@@ -4,7 +4,9 @@ FROM jgoerzen/debian-base-minimal
 COPY scripts/ /opt/scripts/
 
 RUN apt update \ 
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  && apt install -y \
+  apt-utils
+  && DEBIAN_FRONTEND=noninteractive apt install -y \
       wget \
       git \
       tigervnc-standalone-server \
