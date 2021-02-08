@@ -5,14 +5,14 @@ COPY scripts/ /opt/scripts/
 
 RUN apt update \ 
   && apt install -y \
-  apt-utils
+    apt-utils
   && DEBIAN_FRONTEND=noninteractive apt install -y \
-      wget \
-      git \
-      tigervnc-standalone-server \
-      tigervnc-xorg-extension \
-	  tasksel \
-	  dialog \
+    wget \
+    git \
+    tigervnc-standalone-server \
+    tigervnc-xorg-extension \
+	tasksel \
+	dialog \
   && DEBIAN_FRONTEND=noninteractive tasksel install desktop gnome-desktop \
   && useradd -ms /bin/bash vncuser \
   && mkdir -p /home/vncuser/.vnc/ \
