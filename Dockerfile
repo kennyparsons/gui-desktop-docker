@@ -5,7 +5,7 @@ COPY scripts/ /opt/scripts/
 
 RUN apt update \ 
   && apt install -y \
-    apt-utils
+    apt-utils \
   && DEBIAN_FRONTEND=noninteractive apt install -y \
     wget \
     git \
