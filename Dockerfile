@@ -12,8 +12,9 @@ RUN apt update \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
 	tasksel \
-	dialog \
-  && DEBIAN_FRONTEND=noninteractive tasksel install desktop gnome-desktop \
+	dialog
+RUN DEBIAN_FRONTEND=noninteractive tasksel install desktop gnome-desktop
+RUN \
   && useradd -ms /bin/bash vncuser \
   && mkdir -p /home/vncuser/.vnc/ \
   && mv /opt/scripts/xstartup /home/vncuser/.vnc \
