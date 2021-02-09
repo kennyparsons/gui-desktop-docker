@@ -3,17 +3,16 @@ FROM jgoerzen/debian-base-minimal
 
 COPY scripts/ /opt/scripts/
 
-RUN apt update \ 
-  && apt install -y \
-    apt-utils \
-  && DEBIAN_FRONTEND=noninteractive apt install -y \
-    wget \
-    git \
-    tigervnc-standalone-server \
-    tigervnc-xorg-extension \
-	tasksel \
-	dialog
+RUN apt update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      wget \
+      git \
+      tigervnc-standalone-server \
+      tigervnc-xorg-extension
+
+RUN DEBIAN_FRONTEND=noninteractive apt install -y tasksel dialog
 RUN DEBIAN_FRONTEND=noninteractive tasksel install desktop gnome-desktop
+
 RUN \
   && useradd -ms /bin/bash vncuser \
   && mkdir -p /home/vncuser/.vnc/ \
